@@ -25,7 +25,6 @@ moveCursor app d =
     Pos x y = contentPos app
 
 -- | 'updateCursor'
---
 -- given the new content cursor position, update cursor position and offset
 updateCursor :: App -> Pos -> App
 updateCursor app targetPos = 
