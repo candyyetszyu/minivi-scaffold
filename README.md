@@ -1,4 +1,4 @@
-# minivi
+# minivi-scaffold
 
 a simple terminal-based text editor
 
