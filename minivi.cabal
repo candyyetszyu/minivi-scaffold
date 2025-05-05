@@ -1,0 +1,85 @@
+cabal-version:      3.0
+name:               minivi
+version:            0.1.0.0
+build-type:         Simple
+
+common basic
+    ghc-options:
+        -Wdefault -Wincomplete-patterns -Wunused-imports
+    default-language: GHC2021
+    build-depends:
+          base ^>= 4.17.2
+        , containers ^>= 0.8
+        , array ^>= 0.5
+    c-sources: c/terminal.c
+
+------------------------------------------------------------------
+-- The following section is reserved for advanced students only --
+------------------------------------------------------------------
+
+-- ! PREREQUISITES:
+-- You must score **an average of 90 points**
+-- in Assignment 1 and Assignment 2.
+-- Otherwise, you are not allowed to used the packages below.
+
+-- If you had not reached such average but believe that
+-- you are capable, please email TA.
+
+-- ! IMPORTANT NOTES:
+-- If you choose to use any of the packages below, you must:
+--   1. Implement *ONE* simple feature, and
+--   2. Implement *ONE* moderate feature
+-- for the "Bonus" section of the assignment.
+-- ! Failure to meet both criteria above will result in a *15pts deduction*
+
+-- ! Additional Requirements:
+--   1. You should document your justification for using each package.
+--      (i.e., explain why the package is necessary or beneficial)
+--   2. To ensure this assignment is an authentic demonstration of your abilities, 
+--      you are *NOT* allowed to:
+--      (a) discuss/collaborate with your classmates, and
+--      (b) use generation tools (e.g. ChatGPT, GitHub Copilot),
+--          even if you have credited.
+
+common advanced
+    -- Uncomment the packages you wish to use
+    -- You will also need to comment line 62, and uncomment line 63
+    build-depends:
+        -- Hackage: https://hackage.haskell.org/package/text
+        -- text ^>= 2.1.2
+        -- Hackage: https://hackage.haskell.org/package/transformers
+        -- transformers ^>= 0.6.2
+        -- Hackage: https://hackage.haskell.org/package/microlens
+        -- microlens ^>= 0.4
+
+------------------------------------------------------------------
+-- End of section advanced                                      --
+------------------------------------------------------------------
+
+library
+    import:           basic
+    -- import:           basic, advanced
+    hs-source-dirs:   src
+    exposed-modules:
+        Util
+        App
+        Update
+        View
+
+executable minivi
+    import:           basic
+    main-is:          Main.hs
+    hs-source-dirs:   app
+    build-depends:
+          minivi
+    ghc-options:
+        -O -threaded -rtsopts -with-rtsopts=-N
+
+test-suite minivi-test
+    import:           basic
+    type:             exitcode-stdio-1.0
+    hs-source-dirs:   test
+    main-is:          Test.hs
+    build-depends:
+          minivi
+        , hspec ^>= 2.11

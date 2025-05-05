@@ -36,6 +36,25 @@ To run tests:
 $ cabal test
 ```
 
+## Project Structure
+
+```
+minivi/
+├── README.md           # This file
+├── minivi.cabal        # Cabal configuration file
+├── app/
+│   └── Main.hs         # Entry point with main loop
+├── c/
+│   └── terminal.c      # C code for terminal operations
+├── src/
+│   ├── App.hs          # Data models and state definitions
+│   ├── Update.hs       # Logic for updating editor state
+│   ├── Util.hs         # Utility functions and helpers
+│   └── View.hs         # Terminal rendering functions
+└── test/
+    └── Test.hs         # Test suite
+```
+
 ## Usage Instructions
 
 ### Basic Usage
@@ -80,25 +99,6 @@ $ cabal test
 - `:w filename.txt` - Save to specified file
 - `:q` - Quit (will warn if unsaved changes)
 - `:q!` - Force quit without saving
-
-## Project Structure
-
-```
-minivi/
-├── README.md           # This file
-├── minivi.cabal        # Cabal configuration file
-├── app/
-│   └── Main.hs         # Entry point with main loop
-├── c/
-│   └── terminal.c      # C code for terminal operations
-├── src/
-│   ├── App.hs          # Data models and state definitions
-│   ├── Update.hs       # Logic for updating editor state
-│   ├── Util.hs         # Utility functions and helpers
-│   └── View.hs         # Terminal rendering functions
-└── test/
-    └── Test.hs         # Test suite
-```
 
 ## Features
 
